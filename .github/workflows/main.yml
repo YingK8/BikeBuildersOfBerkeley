@@ -1,9 +1,27 @@
- - name: copy file via ssh password
-   uses: appleboy/scp-action@v0.1.7
-   with:
-    host: example.com
-    username: foo
-    password: bar
-    port: 22
-    source: "tests/a.txt,tests/b.txt"
-    target: your_server_target_folder_path
+name: scp files
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
+jobs:
+  copy:
+    name: Copy
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Copy file via ssh, use password
+        run: >
+          rsync 
+          --rsh="sshpass -p ${{ secrets.OCF_PASSWORD }} ssh -o StrictHostKeyChecking=no -l ${{ secrets.OCF_USERNAME }}"
+          -avz --delete --delete-excluded
+          --exclude '.git' 
+          --exclude '.github' 
+          --exclude '.DS_Store' 
+          --exclude 'README.md'
+          ./* 
+          ssh.ocf.berkeley.edu:~/public_html
