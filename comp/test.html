@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Contestant Results</title>
+    <style>
+        .contestant {
+            margin-bottom: 20px;
+            padding: 10px;
+            background-color: #f4f4f4;
+        }
+        .title {
+            font-size: 24px;
+            margin-bottom: 5px;
+        }
+        .bar-container {
+            position: relative;
+            height: 20px;
+            background-color: #ddd;
+            margin: 10px 0;
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+        }
+        .bar {
+            height: 100%;
+            border-radius: 5px;
+            background-color: #4CAF50;
+            width: 0; /* Initial width */
+        }
+        .bar-text {
+            position: absolute;
+            width: 100%;
+            text-align: center;
+            line-height: 20px;
+        }
+        .bounds {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+        }
+        .bound-text {
+            margin: 0 5px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="contestant">
+    <div class="title">Contestant 1 - 1st Place</div>
+    <div class="bounds">
+        <span class="bound-text">0</span>
+        <div class="bar-container">
+            <div class="bar" style="width: 60%;"></div>
+            <div class="bar-text">60</div>
+        </div>
+        <span class="bound-text">100</span>
+    </div>
+
+    <div class="bounds">
+        <span class="bound-text">0</span>
+        <div class="bar-container">
+            <div class="bar" style="width: 30%; background-color: #2196F3;"></div>
+            <div class="bar-text">30</div>
+        </div>
+        <span class="bound-text">100</span>
+    </div>
+
+    <div class="bounds">
+        <span class="bound-text">0</span>
+        <div class="bar-container">
+            <div class="bar" style="width: 80%; background-color: #FF9800;"></div>
+            <div class="bar-text">80</div>
+        </div>
+        <span class="bound-text">100</span>
+    </div>
+</div>
+
+<!-- Repeat the above block for other contestants -->
+
+</body>
+</html>
