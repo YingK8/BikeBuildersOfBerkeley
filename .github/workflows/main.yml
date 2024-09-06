@@ -1,2 +1,9 @@
-- name: SCP Command to Transfer Files
-  uses: appleboy/scp-action@v0.1.7
+ - name: copy file via ssh password
+   uses: appleboy/scp-action@v0.1.7
+   with:
+    host: example.com
+    username: foo
+    password: bar
+    port: 22
+    source: "tests/a.txt,tests/b.txt"
+    target: your_server_target_folder_path
